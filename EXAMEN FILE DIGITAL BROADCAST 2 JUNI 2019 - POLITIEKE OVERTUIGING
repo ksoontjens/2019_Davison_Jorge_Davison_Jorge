@@ -3,10 +3,12 @@ package hellotvxlet;
 import javax.tv.xlet.*;
 import org.dvb.ui.*;
 import java.awt.*;
+import java.awt.event.*;
+import org.havi.ui.event.*;
 
 import org.havi.ui.*;
 
-public class HelloTVXlet implements Xlet {
+public class HelloTVXlet implements Xlet, HActionListener {
 
 private XletContext actueleXletContext;
 private HScene scene;
@@ -37,17 +39,31 @@ public void initXlet(XletContext context) throws XletStateChangeException
       knop1.setSize(100,50);
       knop1.setBackground(new DVBColor(0,0,0,179));
       knop1.setBackgroundMode(HVisible.BACKGROUND_FILL);
-      
-   scene.add(knop1);
-   
+         
       knop2 = new HTextButton("KNOP2");
-      knop2.setLocation(100,200);
+      knop2.setLocation(200,100);
       knop2.setSize(100,50);
       knop2.setBackground(new DVBColor(0,0,0,179));
       knop2.setBackgroundMode(HVisible.BACKGROUND_FILL);
       
+      knop1.setFocusTraversal(null, null, null, knop2); // op neer links rechts
+      knop2>setFocusTraversal(null, null, knop1, null);
+            
+   scene.add(knop1);   
    scene.add(knop2);
       
+      knop1.requestFocus();
+      
+    knop1.setActionCommand("knop1_actioned");
+    knop2.setActionCommand("knop2_actioned");
+    
+    knop1.addHActionListener(this);
+    knop2.addHActionListener(this);
+}
+
+public void actionPreformed(ActionEvent e)
+{
+System.out.println(e.getActionCommand());
 }
 
 public void startXlet() throws XletStateChangeException 
