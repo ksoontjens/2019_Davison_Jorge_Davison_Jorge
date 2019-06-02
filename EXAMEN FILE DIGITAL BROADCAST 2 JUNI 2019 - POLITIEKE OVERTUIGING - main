@@ -5,6 +5,7 @@ import org.dvb.ui.*;
 import java.awt.*;
 import java.awt.event.*;
 import org.havi.ui.event.*;
+import java.util.Timer;
 
 import org.havi.ui.*;
 
@@ -93,7 +94,9 @@ EventManager manager = EventManager.getInstance();
 
 public void startXlet() throws XletStateChangeException 
 {
-
+MijnTimerTask objMijnTimerTask = new MijnTimerTask();
+Timer timer = new Timer();
+timer.scheduleAtFixedRate(objMijnTimerTask, 100000, 120000 ) / start na 100 seconden, herhaalt iedere 2 minutes
 if(debug) System.out.println("Xlet Starten");
 //Scene Zichtbaar maken
 
