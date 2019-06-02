@@ -1,0 +1,14 @@
+package hellotvxlet;
+import java.util.Timertask;
+
+public class MijnTimerTask extends TimerTask {
+
+public void run()
+        {
+        // test lijntje
+        System.out.println("Timer method");
+        
+        
+        }
+
+}
