@@ -5,4 +5,35 @@ import javax.tv.xlet.*;
 public class MijnEersteXlet implements Xlet {
   // Variabele om de actuele Xlet-context in te bewaren.
   private XletContext actueleXletContext;
+  
+// Initialiseren van de benodigde resources en variabelen:
+  public void initXlet(XletContext context)
+    {
+    this.actueleXletContext = context;
+    }
+ 
+ // Starten van de Xlet:
+  public void startXlet() throws XletStateChangeException
+    {
+    // Communicatie (in & output user;
+    }
+    
+  // Methode voor de pause toestand
+  public void pauseXlet()
+    {
+    // vrijgeven van niet nodige resources
+    }
+  
+  // Einde van Xlet.
+  public void destroy Xlet(boolean unconditional) throws XletStateChangeException
+    {
+    if(unconditional) {
+    // System.out.println geeft debug in weer voor emulatoren.
+      System.out.println("De Xlet moet beeindigt worden.");
+    }
+    else {
+    System.out.println("De mogelijkheid bestaat door het werpen van een exceptie de Xlet in leven te houden.");
+    throw new XletStateChangeException("Laat me leven!");
+    }
+  }
 }
