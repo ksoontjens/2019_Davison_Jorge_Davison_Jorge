@@ -51,7 +51,7 @@ public void initXlet(XletContext context) throws XletStateChangeException
       knop2.setBackgroundMode(HVisible.BACKGROUND_FILL);
       
       knop1.setFocusTraversal(null, null, null, knop2); // op neer links rechts
-      knop2>setFocusTraversal(null, null, knop1, null);
+      knop2.setFocusTraversal(null, null, knop1, null);
             
    scene.add(knop1);   
    scene.add(knop2);
@@ -73,8 +73,19 @@ System.out.println(e.getActionCommand());
 EventManager manager = EventManager.getInstance();
 //afhankelijk van welke knop werd ingedrukt, verhogen we de wardering van die partij
   switch(e.getActionCommand())
-     {
-      case
+     { 
+     // Als knop 1 ingedrukt word, is de gebruiker akkoord met the Kattenpartij
+      case knop1:
+          CAT ++;
+          break;
+      // Als knop 2 ingedrukt word, is de gebruiker akkoord met de hondenpartij
+      case knop2:
+          DOG ++:
+          break;
+      // toegevoegd in het geval dat er iets mis gaat
+      case default:
+          System.out.prinln("Something went wrong and we're at the default");
+          break;
       
       
      }
