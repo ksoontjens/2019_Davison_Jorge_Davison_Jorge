@@ -8,7 +8,11 @@ import org.havi.ui.event.*;
 
 import org.havi.ui.*;
 
-public class HelloTVXlet implements Xlet, HActionListener {
+public class HelloTVXlet implements Xlet, HActionListener, UserEventListener {
+
+//waarde van partijen definieeren
+public int CAT = 0;
+public int DOG = 0;
 
 private XletContext actueleXletContext;
 private HScene scene;
@@ -64,6 +68,16 @@ public void initXlet(XletContext context) throws XletStateChangeException
 public void actionPreformed(ActionEvent e)
 {
 System.out.println(e.getActionCommand());
+
+// eventmanager aanvragen
+EventManager manager = EventManager.getInstance();
+//afhankelijk van welke knop werd ingedrukt, verhogen we de wardering van die partij
+  switch(e.getActionCommand())
+     {
+      case
+      
+      
+     }
 }
 
 public void startXlet() throws XletStateChangeException 
