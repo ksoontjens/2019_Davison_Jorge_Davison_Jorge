@@ -4,7 +4,7 @@ import javax.tv.xlet.*;
 import org.dvb.ui.*;
 import java.awt.*;
 
-// Stap 1 klassen onder org.have.ui verkort noteren
+// Stap 1 klassen onder org.have.ui verkort noteren, dit doen we om de klasse HStaticText te kunnen gebruiken
 import org.havi.ui.*;
 
 public class HelloTVXlet implements Xlet {
@@ -28,7 +28,44 @@ public void initXlet(XletContext context) throws XletStateChangeException
   
   //Grootte en positie aangeven
   sceneTemplate.setPreference(HSceneTemplate.SCENE_SCREEN_DIMENSION, new HScreenDimension(1.0f, 1.0f), HSceneTemplate.REQUIRED);
+  
+  sceneTemplate.setPreference(HSceneTemplate.SCENE_SCREEN_DIMENSION, new HScreenPoint(0.0f, 0.0f), HSceneTemplate.REQUIRED);
+  
+  // Een instantie van de Scene aanvragen aan de factory
+  scene = HSceneFactory.getInstance().getBest.Scene(sceneTemplate);
+  
+  // Stap 3: object aanmaken
+  tekstLabel = new HStaticText("TEKST");
+  
+  // Stap 4: eigenschappen van tekstLabel instellen
+  tekstLabel.setLocation(100,100);
+  tekstLabel.setSize(400,250);
+  tekstLabel.setBackground(new DVBColor(255,255,255,179));
+  tekstLabel.setBackgroundMode(HVisible.BACKGROUND_FILL);
+  
+  // Stap 5: tekstLabel aan de Scene Toevoegen.
+  scene.add(tekstLabel);
 
+}
+
+public void startXlet() throws XletStateChangeException 
+{
+
+if(debug) System.out.println("Xlet Starten");
+//Scene Zichtbaar maken
+
+scene.validate();
+scene.setVisible(true);
+
+}
+
+public void pause.Xlet() 
+{
+
+}
+
+public void destroyXlet(boolean unconditional) throws XletStateChangeException 
+{
 
 }
 
