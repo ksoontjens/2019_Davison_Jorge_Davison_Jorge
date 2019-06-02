@@ -1,0 +1,74 @@
+package hellotvxlet;
+
+import javax.tv.xlet.*;
+import org.dvb.ui.*;
+import java.awt.*;
+
+import org.havi.ui.*;
+
+public class HelloTVXlet implements Xlet {
+
+private XletContext actueleXletContext;
+private HScene scene;
+// debuggen activeren of niet?
+private boolean debug = true;
+
+private HTextButton knop1, knop2;
+
+public void initXlet(XletContext context) throws XletStateChangeException 
+{
+
+  if(debug)System.out.println("Xlet Initialiseren");
+  this.actueleXletContext = context;
+  
+  //Template aanmaken
+  HSceneTemplate scenetemplate = new HSceneTemplate();
+  
+  //Grootte en positie aangeven
+  sceneTemplate.setPreference(HSceneTemplate.SCENE_SCREEN_DIMENSION, new HScreenDimension(1.0f, 1.0f), HSceneTemplate.REQUIRED);
+  
+  sceneTemplate.setPreference(HSceneTemplate.SCENE_SCREEN_DIMENSION, new HScreenPoint(0.0f, 0.0f), HSceneTemplate.REQUIRED);
+  
+  // Een instantie van de Scene aanvragen aan de factory
+  scene = HSceneFactory.getInstance().getBest.Scene(sceneTemplate);
+  
+      knop1 = new HTextButton("KNOP1");
+      knop1.setLocation(100,100);
+      knop1.setSize(100,50);
+      knop1.setBackground(new DVBColor(0,0,0,179));
+      knop1.setBackgroundMode(HVisible.BACKGROUND_FILL);
+      
+   scene.add(knop1);
+   
+      knop2 = new HTextButton("KNOP2");
+      knop2.setLocation(100,200);
+      knop2.setSize(100,50);
+      knop2.setBackground(new DVBColor(0,0,0,179));
+      knop2.setBackgroundMode(HVisible.BACKGROUND_FILL);
+      
+   scene.add(knop2);
+      
+}
+
+public void startXlet() throws XletStateChangeException 
+{
+
+if(debug) System.out.println("Xlet Starten");
+//Scene Zichtbaar maken
+
+scene.validate();
+scene.setVisible(true);
+
+}
+
+public void pause.Xlet() 
+{
+
+}
+
+public void destroyXlet(boolean unconditional) throws XletStateChangeException 
+{
+
+}
+
+}
