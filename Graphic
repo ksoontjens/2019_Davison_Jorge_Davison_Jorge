@@ -1,0 +1,35 @@
+package hellotvxlet;
+
+import javax.tv.xlet.*;
+import org.dvb.ui.*;
+import java.awt.*;
+
+// Stap 1 klassen onder org.have.ui verkort noteren
+import org.havi.ui.*;
+
+public class HelloTVXlet implements Xlet {
+
+private XletContext actueleXletContext;
+private HScene scene;
+// debuggen activeren of niet?
+private boolean debug = true;
+
+// Stap 2: tekstLabel declareren
+private HStaticText tekstLabel;
+
+public void initXlet(XletContext context) throws XletStateChangeException 
+{
+
+  if(debug)System.out.println("Xlet Initialiseren");
+  this.actueleXletContext = context;
+  
+  //Template aanmaken
+  HSceneTemplate scenetemplate = new HSceneTemplate();
+  
+  //Grootte en positie aangeven
+  sceneTemplate.setPreference(HSceneTemplate.SCENE_SCREEN_DIMENSION, new HScreenDimension(1.0f, 1.0f), HSceneTemplate.REQUIRED);
+
+
+}
+
+}
