@@ -1,0 +1,8 @@
+// Om jaavax.tv.xlet.Xlet verkort te schrijven importeren we javax.tv.xlet.*
+
+import javax.tv.xlet.*;
+
+public class MijnEersteXlet implements Xlet {
+  // Variabele om de actuele Xlet-context in te bewaren.
+  private XletContext actueleXletContext;
+}
